@@ -56,6 +56,14 @@ class Screen{
         canvasHandler.fillText(this.text, canvasElement.width/2, canvasElement.height/2);
     }
 
+    clear(){
+        let canvasElement = document
+                            .querySelector(this.canvasSelector);
+        let canvasHandler = canvasElement.getContext('2d');
+
+        canvasHandler.clearRect(0, 0, canvasElement.width, canvasElement.height);
+    }
+
 };
 
 export default Screen;

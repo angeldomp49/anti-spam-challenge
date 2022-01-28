@@ -10,29 +10,21 @@ export const Challenge = ({text}) => {
                         .setRandomStyle()
                         .setText(text)
                         .print();
+
+        return () => {
+            challengeScreen.clear();
+        };
     });
 
-    const bgImageUrl = getCurrentDir() +'/' + 'the-background-292720_1280.png';
-    const bgImageValue = 'url('+ bgImageUrl +')';
+    let bgImageValue = document.querySelector('#anti-spam-challenge-save-dir').value;
+    let bg = { backgroundImage: bgImageValue };
     
     return(
         <canvas 
             id='challenge-box_546534656' 
-            style={{ backgroundImage: bgImageValue }} 
+            style={bg}
             className='challenge-box active'></canvas>
     );
-};
-
-const getCurrentDir = () => {
-    let pathParts = document
-                    .currentScript
-                    .src
-                    .split('/');
-
-    pathParts.pop();
-    let currentDir = pathParts.join('/');
-
-    return currentDir;
 };
 
 export default Challenge;
