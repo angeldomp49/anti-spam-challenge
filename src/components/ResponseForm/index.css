@@ -1,0 +1,12 @@
+.anti-spam-challenge-form{
+    display: flex;
+    width: 100%;
+}
+
+#challenge-user-response{
+    flex: 2;
+}
+
+.anti-span-challenge-button{
+    flex: 1;
+}
