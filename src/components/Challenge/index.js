@@ -4,9 +4,11 @@ import './index.css';
 
 export const Challenge = ({text}) => {
 
+    let challengeBoxId = 'challenge-box_546534659';
+
     useEffect(() => {
         let challengeScreen = new Screen();
-        challengeScreen.getCanvas('#challenge-box_546534656')
+        challengeScreen.getCanvas('#'+challengeBoxId)
                         .setRandomStyle()
                         .setText(text)
                         .print();
@@ -21,7 +23,7 @@ export const Challenge = ({text}) => {
     
     return(
         <canvas 
-            id='challenge-box_546534656' 
+            id={challengeBoxId}
             style={bg}
             className='challenge-box active'></canvas>
     );

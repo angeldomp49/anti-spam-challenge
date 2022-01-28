@@ -6,7 +6,7 @@ import './index.css';
 
 export const ResponseForm = ({rightResponse, onSuccess, onError}) => {
 
-    let inputId = "challenge-user-response";
+    let inputId = "challenge-user-response1";
 
     const validate = () => {
         let success = checkUserResponse( rightResponse );

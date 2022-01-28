@@ -3,12 +3,12 @@ import { Challenge } from "./components/Challenge";
 import { ResponseForm } from "./components/ResponseForm";
 import Operation from "./Operation";
 
-export const App = () => {
+export const App = ({containerId}) => {
 
     let [ componentUpdates, setComponentUpdates ] = useState(0);
 
     let operationToResolve = new Operation();
-    let container = document.querySelector('#anti-spam-challenge');
+    let container = document.querySelector('#' + containerId);
     let successEvent = new Event('challenge_resolved');
     let errorEvent = new Event('challenge_failed');
 
