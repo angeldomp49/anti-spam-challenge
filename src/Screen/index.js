@@ -3,6 +3,7 @@ import randomItem from "random-item";
 class Screen{
 
     canvasSelector = null;
+    canvasObject = null;
     fontFamily = null;
     fontSize = null;
     text = null;
@@ -17,6 +18,11 @@ class Screen{
 
     getCanvas(canvasSelector){
         this.canvasSelector = canvasSelector;
+        return this;
+    }
+
+    getCanvasObject( canvasObject ){
+        this.canvasObject = canvasObject;
         return this;
     }
 
@@ -48,20 +54,34 @@ class Screen{
     }
     
     print(){
-        let canvasElement = document
-                            .querySelector(this.canvasSelector);
+
+        let canvasElement = this.buildCanvasElement();
         let canvasHandler = canvasElement.getContext('2d');
+        
         canvasHandler.font = this.fontSize + ' ' + this.fontFamily;
         canvasHandler.textAlign = "center";
         canvasHandler.fillText(this.text, canvasElement.width/2, canvasElement.height/2);
     }
 
     clear(){
-        let canvasElement = document
-                            .querySelector(this.canvasSelector);
+        let canvasElement = this.buildCanvasElement();
         let canvasHandler = canvasElement.getContext('2d');
 
         canvasHandler.clearRect(0, 0, canvasElement.width, canvasElement.height);
+    }
+
+    buildCanvasElement(){
+
+        let canvasElement = null;
+
+        if(this.canvasObject !== null){
+            canvasElement = this.canvasObject;
+        }
+        else{
+            canvasElement = document.getElementById(this.canvasSelector);
+        }
+
+        return canvasElement;
     }
 
 };

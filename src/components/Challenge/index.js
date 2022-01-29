@@ -1,14 +1,15 @@
-import react, { useEffect } from 'react';
+import { useEffect } from 'react';
 import Screen from '../../Screen';
 import './index.css';
 
-export const Challenge = ({text}) => {
-
-    let challengeBoxId = 'challenge-box_546534659';
+export const Challenge = ({text, challengeBoxId}) => {
 
     useEffect(() => {
+
+        console.log('before getCanvas: ' + challengeBoxId);
+
         let challengeScreen = new Screen();
-        challengeScreen.getCanvas('#'+challengeBoxId)
+        challengeScreen.getCanvas(challengeBoxId)
                         .setRandomStyle()
                         .setText(text)
                         .print();
@@ -18,8 +19,10 @@ export const Challenge = ({text}) => {
         };
     });
 
-    let bgImageValue = document.querySelector('#anti-spam-challenge-save-dir').value;
+    let bgImageValue = document.getElementById('anti-spam-challenge-save-dir').value;
     let bg = { backgroundImage: bgImageValue };
+
+    console.log('before return : ' + challengeBoxId);
     
     return(
         <canvas 

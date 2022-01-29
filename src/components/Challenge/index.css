@@ -1,8 +1,3 @@
-.challenge-box{
-    display:none;
-    width:0;
-    height: 0;
-}
 .challenge-box.active{
     display:block;
     width: 100%;

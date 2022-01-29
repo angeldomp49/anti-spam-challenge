@@ -2,11 +2,12 @@ import React from "react";
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheck } from '@fortawesome/free-solid-svg-icons';
+import Id from '../../randomKey/Id';
 import './index.css';
 
 export const ResponseForm = ({rightResponse, onSuccess, onError}) => {
 
-    let inputId = "challenge-user-response1";
+    let inputId = "challenge-user-response1" + Id.generate();
 
     const validate = () => {
         let success = checkUserResponse( rightResponse );

@@ -3,12 +3,13 @@ import { Challenge } from "./components/Challenge";
 import { ResponseForm } from "./components/ResponseForm";
 import Operation from "./Operation";
 
-export const App = ({containerId}) => {
+export const App = ({targetSelector}) => {
 
     let [ componentUpdates, setComponentUpdates ] = useState(0);
+    let challengeBoxId = 'challenge_box_' + Id.generate();
 
     let operationToResolve = new Operation();
-    let container = document.querySelector('#' + containerId);
+    let container = document.querySelector(targetSelector);
     let successEvent = new Event('challenge_resolved');
     let errorEvent = new Event('challenge_failed');
 
@@ -35,7 +36,7 @@ export const App = ({containerId}) => {
     return(
         <StrictMode>
             <Challenge 
-                text={operationToResolve.text} />
+                text={operationToResolve.text} challengeBoxId={challengeBoxId} />
             <ResponseForm 
                 rightResponse={operationToResolve.result}
                 onSuccess={handleSuccess}
